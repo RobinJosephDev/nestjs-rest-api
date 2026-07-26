@@ -19,4 +19,12 @@ export class ItemsService {
     const newItem = new this.itemModel(item);
     return await newItem.save();
   }
+
+  async update(id: string, item: Item): Promise<Item | null> {
+    return await this.itemModel.findByIdAndUpdate(id, item);
+  }
+
+  async delete(id: string): Promise<Item | null> {
+    return await this.itemModel.findByIdAndDelete(id);
+  }
 }
